@@ -1,9 +1,26 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-window.React = React
-const Index:React.FC = () => {
+import {
+  HashRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import Index from './index/index'
+// window.React = React
+const Routers = () => {
+  // useEffect(()=>{
+  //   Miracle.onAppReady(() => {
+  //     let token = JSON.stringify(Miracle.getData()) !== '{}' ? Miracle.getData().user.token : ""
+  //     console.log(Miracle.getData())
+  //     localStorage.setItem("token", token)
+  //   })
+  // })
   return (
-    <div>gpa-game-2</div>
+    <Router>
+      <Switch>
+        <Route path="/" component={Index} exact></Route>
+      </Switch>
+    </Router>
   )
-}
-ReactDOM.render(<Index/>, document.getElementById('root'));
+} 
+ReactDOM.render(<Routers />, document.getElementById('root'));
