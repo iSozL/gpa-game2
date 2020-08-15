@@ -51,6 +51,14 @@ module.exports = {
             loader: 'css-loader'
           }
         ]
+      },
+      {
+        test: /\.(png|jpg|gif|ttf)$/,
+        use: [
+          {
+            loader: 'url-loader',
+          }
+        ] 
       }
     ]
   },

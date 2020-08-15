@@ -1,7 +1,10 @@
 import * as React from 'react';
+import './index.scss'
 const Index: React.FC = () => {
   return (
-    <div>gpa-game2</div>
+    <div>
+      <div className="index-container">gpa-game2</div>
+    </div>
   )
 }
 export default Index;

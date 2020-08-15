@@ -1,0 +1,10 @@
+.index-container {
+  margin: 0;
+  padding: 0;
+  background-image: url(http://antelope.fun/index-background.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 360vw;
+  font-family: jinkai;
+}
