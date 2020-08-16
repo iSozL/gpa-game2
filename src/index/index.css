@@ -9,6 +9,7 @@
   height: 360vw;
   font-family: jinkai;
   position: relative;
+  visibility: hidden;
 }
 
 p {

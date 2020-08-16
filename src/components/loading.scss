@@ -1,0 +1,12 @@
+.loading {
+  background: radial-gradient(#383b44, #383b44 5%, #14182f);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+}
+.loading-gif {
+  box-shadow: 0 0 10px 10px rgba(225, 225, 225, .6);
+}

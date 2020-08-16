@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './index.scss';
 import {Link} from 'react-router-dom';
-
+import Loading from '../components/loading';
 const Index: React.FC = () => {
   const [flag, setFlag] = useState<boolean>(true);
   const [show, changeShow] = useState<boolean>(false);
@@ -31,7 +31,7 @@ const Index: React.FC = () => {
     if (s1 && s2 && s3 && s4) {
       if (count < 3) {
         let num: number = count;
-        const eleList = [s1, s2, s3, s4];
+        const eleList: HTMLElement[] = [s1, s2, s3, s4];
         eleList[num].style.visibility = "visible";
         setTimeout(function() {
           if(num - 1 >= 0) {
@@ -54,6 +54,7 @@ const Index: React.FC = () => {
   }
   return (
     <div>
+      <div id="loading"><Loading /></div>
       <div className="index-container" id="container" onClick={toBottom}>
         <div className="index-title">2019
           <span className="index-flag">
