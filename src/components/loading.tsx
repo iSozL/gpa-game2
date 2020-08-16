@@ -1,10 +1,9 @@
 import React from 'react';
 import "./loading.scss";
-const loading = require('../assets/imgs/xffn.png')
 const Loading = () => {
   return (
     <div className="loading">
-      <img src={loading}></img>
+      <img src={require("../assets/imgs/loading.gif")}></img>
     </div>
   )
 }
