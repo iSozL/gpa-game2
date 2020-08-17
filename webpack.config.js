@@ -57,17 +57,11 @@ module.exports = {
         use: [
           {
             loader: 'url-loader',
+            options: {
+              esModule: false,
+            }
           }
         ] 
-      },
-      {
-        test: /\.(png|jpg|gif|ttf)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {}
-          }
-        ]
       }
     ]
   },
