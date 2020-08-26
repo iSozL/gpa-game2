@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   position: fixed;
+  z-index: 2;
 }
 .loading-gif {
   box-shadow: 0 0 10px 10px rgba(225, 225, 225, .6);

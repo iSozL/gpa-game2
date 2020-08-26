@@ -33,6 +33,13 @@ const Words: React.FC = () => {
 const Index: React.FC = () => {
   const [flag, setFlag] = useState<boolean>(true);
   const [show, changeShow] = useState<boolean>(false);
+
+  window.onload = () => {
+    const loadingEle: HTMLElement | null = document.getElementById("loading")
+
+    // 怎么解决loadingEle为null
+    loadingEle.style.display = "none"
+  }
   // 通过锚点实现点击滑到底部
   const toBottom = (): void => {
     const userAgent = navigator.userAgent;
@@ -82,7 +89,7 @@ const Index: React.FC = () => {
   }
   return (
     <div>
-      {/* <div id="loading"><Loading /></div> */}
+      <div id="loading"><Loading /></div>
       <div className="index-container" id="container" onClick={toBottom}>
         <div className="index-title">2019
           <span className="index-flag">
