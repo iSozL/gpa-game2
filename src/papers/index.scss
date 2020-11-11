@@ -10,7 +10,7 @@
 	-webkit-animation:myfirst 5s infinite; /* Safari and Chrome */
 }
 .paper-container {
-  position: relative;
+  position: fixed;
   float: left;
   margin: 0;
   padding: 0;
@@ -22,6 +22,7 @@
   font-family: jinkai;
   position: static;
 }
+
 .puzzle {
   visibility: hidden;
   position: absolute;
