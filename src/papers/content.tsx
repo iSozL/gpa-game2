@@ -8,7 +8,7 @@ const Content: React.FC = () => {
   const { show } = useContext<any>(showContext)
   return (
     <div>
-      { show.show ? <Before /> : <After />}
+      { show.show ? <After /> : <Before />}
     </div>
   )
 }
