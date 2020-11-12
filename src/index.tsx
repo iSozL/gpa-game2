@@ -1,5 +1,6 @@
-import * as React from 'react';
+import React, {useEffect} from 'react';
 import * as ReactDOM from 'react-dom';
+import Miracle from 'incu-webview';
 import './index.scss';
 import {
   HashRouter as Router,
@@ -12,13 +13,12 @@ import Characters from './characters/index'
 import Letter from './letter/index'
 // window.React = React
 const Routers = () => {
-  // useEffect(()=>{
-  //   Miracle.onAppReady(() => {
-  //     let token = JSON.stringify(Miracle.getData()) !== '{}' ? Miracle.getData().user.token : ""
-  //     console.log(Miracle.getData())
-  //     localStorage.setItem("token", token)
-  //   })
-  // })
+  useEffect(()=>{
+    Miracle.onAppReady(() => {
+      let token = JSON.stringify(Miracle.getData()) !== '{}' ? Miracle.getData().user.token : ""
+      localStorage.setItem("token", token)
+    })
+  })
   return (
     <Router>
       <Switch>
