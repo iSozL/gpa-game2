@@ -5,14 +5,15 @@ import {papersBg, fetchData, Pprops, Cprops} from '../utils/fetchData';
 
 interface Iprops {
   background: Pprops,
-  pageContext: Cprops
+  pageContext: Cprops,
+  toggle: any
 }
 
 let paperContext: Cprops[];
 const Paper = (props: Iprops) => {
-  const {background, pageContext} = props
+  const {background, pageContext, toggle} = props
   return (
-    <div className={background.bg} id="paper-bg">
+    <div className={background.bg} id="paper-bg" onClick={toggle}>
       <div>
         <div className="paper-name" style={{color: background.ncolor}}>
           <span style={{background: background.bgcolor}}>{background.name}</span>
@@ -43,6 +44,7 @@ const Papers: React.FC = () => {
   const [bg, setBg] = useState<number>(0)
   // 纸条页数
   const [page, setPage] = useState<number>(0)
+  // 拼图显示
   const imgRef = useRef<any>()
   // gif播放完之后显示纸条
   const showPaper = () => {
@@ -67,6 +69,22 @@ const Papers: React.FC = () => {
       showPaper()
     }, 3700)
   }
+
+  const toggle = () => {
+    setPage(page + 1);
+    if (paperContext[page].end && bg < 7) {
+      imgRef.current.style.filter = null
+      imgRef.current.style.mozFilter = null
+      imgRef.current.style.msFilter = null
+      imgRef.current.style.webkitFilter = null
+      imgRef.current.style.oFilter = null
+      setBg(bg + 1)
+      setPaper(false)
+      setShow(true)
+    } else if (paperContext[page].end && bg >= 7) {
+      window.location.hash = "/characters"
+    }
+  }
   useEffect(() => {
     (async function () {paperContext = await fetchData()})()
   }, [])
@@ -74,11 +92,11 @@ const Papers: React.FC = () => {
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
       {loading ? <Loading /> : ""}
-      <img id="puzzle" src={papersBg[bg].puzzle} className="puzzle"></img>
+      {paper ? <img id="puzzle" src={papersBg[bg].puzzle} className="puzzle" /> : ""}
       <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
         <img ref={imgRef} className="paper-container" id="paper-container" src="http://antelope.fun/paperbg.jpg" />
         {show ? <div className="click" onClick={change}></div> : ""}
-        {paper ? <Paper background={papersBg[bg]} pageContext={paperContext[page]} /> : ""}
+        {paper ? <Paper background={papersBg[bg]} pageContext={paperContext[page]} toggle={toggle} /> : ""}
       </div>
     </div>
   )
