@@ -10,7 +10,7 @@ body {
 	-webkit-animation:myfirst 5s infinite; /* Safari and Chrome */
 }
 .paper-container {
-  position: fixed;
+  position: relative;
   float: left;
   margin: 0;
   padding: 0;
@@ -32,7 +32,7 @@ body {
   height: auto;
 }
 #paper-bg {
-  visibility: hidden;
+  // visibility: hidden;
 }
 .paper1 {
   position: absolute;
