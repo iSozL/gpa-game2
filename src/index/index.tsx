@@ -12,6 +12,7 @@ const Index: React.FC = () => {
   const ref3 = useRef<any>()
   const ref4 = useRef<any>()
   const loadingRef = useRef<any>()
+  const container = useRef<any>()
 
   window.onload = () => {
     const loadingEle: HTMLElement = loadingRef.current
@@ -25,7 +26,8 @@ const Index: React.FC = () => {
   }
   // 通过锚点实现点击滑到底部
   const toBottom = (): void => {
-    const ele:HTMLElement = document.body;
+    const ele = container.current
+
     // safari不支持scrollIntoView的options
     if (isIOS()) {
       ele.scrollIntoView(false);
@@ -71,7 +73,7 @@ const Index: React.FC = () => {
   }
 
   return (
-    <div>
+    <div id="container" ref={container}>
       <div id="loading" ref={loadingRef}><Loading /></div>
       <div className="index-container" id="container" onClick={toBottom}>
         <div className="index-title">2019

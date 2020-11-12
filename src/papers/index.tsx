@@ -71,7 +71,9 @@ const Papers: React.FC = () => {
   }
 
   const toggle = () => {
-    setPage(page + 1);
+    if (page <= 13) {
+      setPage(page + 1);
+    }
     if (paperContext[page].end && bg < 7) {
       imgRef.current.style.filter = null
       imgRef.current.style.mozFilter = null
