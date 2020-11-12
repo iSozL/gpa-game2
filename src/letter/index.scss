@@ -1,0 +1,25 @@
+.letter-container {
+  margin: 0;
+  padding: 0;
+  background-image: url(http://antelope.fun/letter-bg.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+  font-family: jinkai;
+  color: #fdf5d3;
+  font-size: 2.7vh;
+  letter-spacing: 1px;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+.letter-words div{
+  padding: 4vh 10vw 0 10vw;
+  display: none;
+}
+.letter-click {
+  padding-top: 5vh;
+  float: right;
+}
