@@ -1,0 +1,69 @@
+.characters-container {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: jinkai;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* visibility: hidden; */
+}
+.characters {
+  width: 55vw;
+  height: 55vw;
+  animation:charact 2s;
+	-webkit-animation:charact 2s; /* Safari and Chrome */
+}
+@keyframes charact
+{
+	0% {
+    width: 55vw;
+    height: 55vw;
+  }
+  100% {
+    width: 70vw;
+    height: 70vw;
+  }
+}
+
+@-webkit-keyframes charact {
+  0% {
+    width: 55vw;
+    height: 55vw;
+  }
+  100% {
+    width: 70vw;
+    height: 70vw;
+  }
+}
+.get {
+  position: absolute;
+  bottom: 10vh;
+  color: #fdf5d3;
+  font-size: 20px;
+}
+.words1 {
+  position: absolute;
+  top: 4vh;
+  left: 4vw;
+  width: 30vw;
+}
+.words2 {
+  position: absolute;
+  width: 30vw;
+  top: 14vh;
+  right: 20vw
+}
+.words3 {
+  position: absolute;
+  width: 40vw;
+  top: 4vh;
+  right: 4vw
+}
+.words4 {
+  position: absolute;
+  width: 17vw;
+  top: 20vh;
+  left: 15vw
+}
