@@ -1,7 +1,7 @@
 import React, {useRef, useEffect, useState} from 'react';
 import Loading from '../components/loading';
 import './index.scss';
-import {papersBg, fetchData, Pprops, Cprops} from '../utils/fetchData';
+import {papersBg, fetchData, Pprops, Cprops} from '../utils/papersData';
 
 interface Iprops {
   background: Pprops,
