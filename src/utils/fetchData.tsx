@@ -1,7 +1,23 @@
 import request from './request'
 import * as React from 'react';
 
-let papersBg = [
+export interface Pprops {
+  name: string;
+  bg: string;
+  bgcolor: string;
+  logo?: string;
+  puzzle: string;
+  ncolor: string;
+  color: string;
+}
+
+export interface Cprops {
+  id: number;
+  end: boolean;
+  context: JSX.Element
+}
+
+let papersBg: Pprops[] = [
   {
     name: "缘起",
     bg: "paper1",
@@ -75,7 +91,7 @@ let papersBg = [
     color: "rgba(169,169,169, .7)",
   }
 ]
-let paperContext;
+let paperContext: Cprops[];
 const fetchData = async () => {
   const [papersRes, todoRes, myRes] = await Promise.all([
     request.get("https://os.ncuos.com/api/h5/data"),

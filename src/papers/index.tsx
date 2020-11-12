@@ -1,28 +1,48 @@
 import React, {useRef, useEffect, useState} from 'react';
 import Loading from '../components/loading';
 import './index.scss';
-import {papersBg, fetchData} from '../utils/fetchData';
+import {papersBg, fetchData, Pprops, Cprops} from '../utils/fetchData';
 
-const Paper: React.FC = () => {
+interface Iprops {
+  background: Pprops,
+  pageContext: Cprops
+}
+
+let paperContext: Cprops[];
+const Paper = (props: Iprops) => {
+  const {background, pageContext} = props
   return (
-    <div className="paper1" id="paper-bg">
+    <div className={background.bg} id="paper-bg">
       <div>
-        <div className="paper-name" style={{color: "#2861a1"}}>
-          <span style={{background: "#2861a1"}}>淦林娘</span>
+        <div className="paper-name" style={{color: background.ncolor}}>
+          <span style={{background: background.bgcolor}}>{background.name}</span>
         </div>
         <div>
-          <div style={{marginTop: "6vh"}}></div>
+          <div>
+            { 
+              background.logo ? 
+              <img className="logo" src={background.logo} /> : 
+              <div style={{marginTop: "6vh"}}></div>
+            }
+          </div>
         </div>
-        <div className="context" style={{color: "#2861a1"}}>nmsl</div>
+        <div className="context" style={{color: background.color}}>{pageContext.context}</div>
       </div>
     </div>
   )
 }
 
 const Papers: React.FC = () => {
+  // loading显示
   const [loading, setLoading] = useState<boolean>(false)
+  // 拉杆高亮显示
   const [show, setShow] = useState<boolean>(true)
+  // 纸条显示
   const [paper, setPaper] = useState<boolean>(false)
+  // 纸条背景
+  const [bg, setBg] = useState<number>(0)
+  // 纸条页数
+  const [page, setPage] = useState<number>(0)
   const imgRef = useRef<any>()
   // gif播放完之后显示纸条
   const showPaper = () => {
@@ -48,17 +68,17 @@ const Papers: React.FC = () => {
     }, 3700)
   }
   useEffect(() => {
-    (async function () {const data = await fetchData(); console.log(data)})()
-    console.log(papersBg)
+    (async function () {paperContext = await fetchData()})()
   }, [])
 
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
       {loading ? <Loading /> : ""}
+      <img id="puzzle" src={papersBg[bg].puzzle} className="puzzle"></img>
       <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
         <img ref={imgRef} className="paper-container" id="paper-container" src="http://antelope.fun/paperbg.jpg" />
         {show ? <div className="click" onClick={change}></div> : ""}
-        {paper ? <Paper /> : ""}
+        {paper ? <Paper background={papersBg[bg]} pageContext={paperContext[page]} /> : ""}
       </div>
     </div>
   )
